@@ -31,6 +31,7 @@ PostgreSQL'de `PrimeFinderDb` adında bir veritabanı oluştur.
     "Audience": "primeApp-users",
     "ExpiryInMinutes": 60
   }
+
 Not:Secret yukarıdaki gibi kullanılırsa hata alıyor. Silmeme sebebim ise bu hatayı secret string değerini daha uzun yaparak, hatanın üstesinden geldiğimi hatırlamak amacıyla bu şekilde bıraktım.
 Olması gereken "Secret": "supersecurelongkey!jwt-auth-256-bit-key@123",
 
