@@ -10,6 +10,7 @@ Bu proje, kullanıcıların girdiği sayılar içinden sistemin en büyük asal 
 - Identity (JWT tabanlı kimlik doğrulama)
 - Onion Architecture + CQRS + Unit of Work
 - Bootstrap 5
+- Docker(PostgreSql)
 
 ---
 
@@ -30,6 +31,8 @@ PostgreSQL'de `PrimeFinderDb` adında bir veritabanı oluştur.
     "Audience": "primeApp-users",
     "ExpiryInMinutes": 60
   }
+Not:Secret yukarıdaki gibi kullanılırsa hata alıyor. Silmeme sebebim ise bu hatayı secret string değerini daha uzun yaparak, hatanın üstesinden geldiğimi hatırlamak amacıyla bu şekilde bıraktım.
+Olması gereken "Secret": "supersecurelongkey!jwt-auth-256-bit-key@123",
 
 ## Migration ve Database Oluşturma
 dotnet ef migrations add InitialCreate -p PrimeApp.Infrastructure -s PrimeFinder.MVC
@@ -81,4 +84,4 @@ AdminController → [Authorize(Roles = "Admin")]
  Admin kullanıcılar için geçmiş listeleme
 
  ## Docker
- Docker üzerinden Portainer container yardımıyla 5432 portunda bir Postgresql sunucusu oluşturdum. Kayıtlarımı oraya yaptım.
+ Docker üzerinden Portainer container yardımıyla 5432 portunda bir Postgresql sunucusu oluşturdum. Kayıtlarımı oraya yaptım. Environment kullanımı yapmak şart yoksa hata alırsınız Örn. Username:postgres Password:123456
