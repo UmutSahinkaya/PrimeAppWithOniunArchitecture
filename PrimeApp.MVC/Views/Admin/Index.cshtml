@@ -1,0 +1,25 @@
+﻿@model List<PrimeApp.MVC.Models.PrimeInputViewModel>
+
+<h2>Giriş Geçmişi</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Kullanıcı (Email)</th>
+            <th>Girdiği Sayılar</th>
+            <th>En Büyük Asal</th>
+            <th>Tarih</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.UserEmail</td>
+                <td>@item.InputNumbers</td>
+                <td>@item.MaxPrime</td>
+                <td>@item.CreatedAt.ToLocalTime().ToString("g")</td>
+            </tr>
+        }
+    </tbody>
+</table>

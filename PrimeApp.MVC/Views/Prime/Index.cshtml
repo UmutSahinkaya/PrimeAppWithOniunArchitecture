@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Asal Sayı Hesaplama";
+}
+
+<h2>Asal Sayı Hesaplama</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label>Sayıları girin (virgülle ayırın):</label>
+        <input type="text" name="inputNumbers" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Hesapla</button>
+</form>
+
+@if (ViewBag.Result != null)
+{
+    <div class="alert alert-success mt-3">
+        En büyük asal sayı: <strong>@ViewBag.Result</strong>
+    </div>
+}

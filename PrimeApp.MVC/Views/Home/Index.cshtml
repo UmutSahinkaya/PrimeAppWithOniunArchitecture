@@ -1,0 +1,58 @@
+﻿@using System.Security.Claims
+@{
+    ViewData["Title"] = "Ana Sayfa";
+
+    var isAuthenticated = User.Identity?.IsAuthenticated ?? false;
+    var email = User.FindFirstValue(ClaimTypes.NameIdentifier); 
+    var role = User.FindFirstValue(ClaimTypes.Role);  
+}
+
+<div class="jumbotron mt-4 bg-light p-4 rounded shadow-sm">
+    @if (isAuthenticated)
+    {
+        <h1 class="display-5 text-primary">Hoş geldin, @email!</h1>
+        <p class="lead">
+            Asal sayı bulma uygulamamıza tekrar hoş geldin. Aşağıdaki adımları takip ederek
+            hızlıca işlem yapabilirsin:
+        </p>
+
+        <hr class="my-4" />
+
+        <ul class="list-unstyled">
+            <li class="mb-2">
+                <span class="fw-bold text-dark">Asal Hesaplama:</span>
+                Üst menüden <strong>“Asal Hesaplama”</strong> sekmesine tıklayarak istediğin sayıları girip
+                en büyük asal sayıyı görebilirsin.
+            </li>
+
+            @if (role == "Admin")
+            {
+                <li class="mb-2">
+                    <span class="fw-bold text-dark">Admin Paneli:</span>
+                    Admin yetkin olduğu için <strong>“Admin Paneli”</strong> sekmesine tıklayıp tüm kullanıcı
+                    giriş kayıtlarını inceleyebilirsin.
+                </li>
+            }
+
+            <li class="mb-2">
+                <span class="fw-bold text-dark">Çıkış Yap:</span>
+                İşin bittiğinde üst menüden <strong>“Çıkış Yap”</strong> linki ile güvenli şekilde çıkış yapabilirsin.
+            </li>
+        </ul>
+
+        <p class="mt-4 text-success">
+            Kolay gelsin!
+        </p>
+    }
+    else
+    {
+        <h1 class="display-5">Merhaba!</h1>
+        <p class="lead">
+            Uygulamaya hoş geldin. Devam etmek için lütfen
+            <a asp-controller="Account" asp-action="Login">Giriş Yap</a>
+            veya
+            <a asp-controller="Account" asp-action="Register">Kayıt Ol</a>
+            seçeneklerinden birini kullan.
+        </p>
+    }
+</div>
