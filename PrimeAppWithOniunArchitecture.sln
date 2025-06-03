@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimeApp.MVC", "PrimeApp.MV
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{27D75BAA-0557-406A-994E-46CBE6A5C642}"
 	ProjectSection(SolutionItems) = preProject
+		..\..\Ekran görüntüsü 2025-06-03 084156.png = ..\..\Ekran görüntüsü 2025-06-03 084156.png
+		..\..\Ekran görüntüsü 2025-06-03 084232.png = ..\..\Ekran görüntüsü 2025-06-03 084232.png
 		README.md = README.md
 	EndProjectSection
 EndProject
