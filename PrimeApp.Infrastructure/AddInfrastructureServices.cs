@@ -4,10 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using PrimeApp.Application.Services;
 using PrimeApp.Domain.Common;
 using PrimeApp.Infrastructure.Identity;
 using PrimeApp.Infrastructure.Persistence;
 using PrimeApp.Infrastructure.Repositories;
+using PrimeApp.Infrastructure.Services;
 using System.Text;
 
 namespace PrimeApp.Infrastructure;
@@ -69,7 +71,7 @@ public static class AddInfrastructureServices
         });
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
-
+        services.AddScoped<IUserInfoService, UserInfoService>();
         return services;
     }
 }

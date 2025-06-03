@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using PrimeApp.Infrastructure;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddAuthentication();
 builder.Services.AddAuthorization();
+builder.Services.AddMediatR(cfg =>
+{
+    cfg.RegisterServicesFromAssembly(Assembly.Load("PrimeApp.Application"));
+});
 
 
 var app = builder.Build();
